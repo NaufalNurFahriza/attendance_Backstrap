@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Edit Data Absensi</title>
+    <title>Tambah Data Absensi</title>
     <!-- Icons-->
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" rel="stylesheet">
     <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
@@ -14,11 +14,11 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Backpack style on top-->
-    <link href="css/backstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/backstrap.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Edit Data Absensi</h1>
+        <h1>Tambah Data Absensi</h1>
         <form id="absensiForm">
             <div class="form-group">
                 <label for="nama">Nama</label>
@@ -47,31 +47,17 @@
                 <label for="jamKeluar">Jam Keluar</label>
                 <input type="time" class="form-control" id="jamKeluar" required>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
     <script src="../util/api.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const absensiForm = document.getElementById('absensiForm');
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-
-            if (id) {
-                const item = await fetchDataById(id);
-                if (item) {
-                    document.getElementById('nama').value = item.nama;
-                    document.getElementById('alamat').value = item.alamat;
-                    document.getElementById('jenisKelamin').value = item.jenisKelamin;
-                    document.getElementById('tanggalAbsen').value = item.tanggalAbsen;
-                    document.getElementById('jamMasuk').value = item.jamMasuk;
-                    document.getElementById('jamKeluar').value = item.jamKeluar;
-                }
-            }
 
             absensiForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
-                const updatedData = {
+                const newData = {
                     nama: document.getElementById('nama').value,
                     alamat: document.getElementById('alamat').value,
                     jenisKelamin: document.getElementById('jenisKelamin').value,
@@ -80,8 +66,8 @@
                     jamKeluar: document.getElementById('jamKeluar').value
                 };
 
-                await updateData(id, updatedData);
-                alert('Data berhasil diupdate!');
+                await addData(newData);
+                alert('Data berhasil disimpan!');
                 window.location.href = 'index.html';
             });
         });
