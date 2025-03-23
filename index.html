@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Admin Absensi Karyawan</title>
+    <!-- Icons-->
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" rel="stylesheet">
+    <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="../node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="../node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- CoreUI styles-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <!-- Backpack style on top-->
+    <link href="css/backstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Data Absensi Karyawan</h1>
+        <a href="input.html" class="btn btn-primary mb-3">Tambah Absensi</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal Absen</th>
+                    <th>Jam Masuk</th>
+                    <th>Jam Keluar</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable">
+                <!-- Data akan diisi oleh JavaScript -->
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination" id="pagination">
+                <!-- Pagination akan diisi oleh JavaScript -->
+            </ul>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+    <!-- CoreUI and necessary plugins-->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/pace-progress/pace.min.js"></script>
+    <script src="../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="../node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
