@@ -66,7 +66,13 @@
                     document.getElementById('tanggalAbsen').value = item.tanggalAbsen;
                     document.getElementById('jamMasuk').value = item.jamMasuk;
                     document.getElementById('jamKeluar').value = item.jamKeluar;
+                } else {
+                    alert('Data tidak ditemukan');
+                    window.location.href = 'index.html';
                 }
+            } else {
+                alert('ID tidak valid');
+                window.location.href = 'index.html';
             }
 
             absensiForm.addEventListener('submit', async function (e) {

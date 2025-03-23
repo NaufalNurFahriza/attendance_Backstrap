@@ -38,6 +38,17 @@ app.post('/data', (req, res) => {
     res.json({ message: 'Data berhasil ditambahkan!', data: newData });
 });
 
+// Endpoint untuk mendapatkan data berdasarkan ID
+app.get('/data/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const data = readData();
+    const item = data.find(item => item.id === id);
+    if (!item) {
+        return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json(item);
+});
+
 // Endpoint untuk mengupdate data
 app.put('/data/:id', (req, res) => {
     const id = parseInt(req.params.id);

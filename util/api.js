@@ -82,5 +82,3 @@ async function deleteData(id) {
         return null;
     }
 }
-
-export { fetchData, fetchDataById, addData, updateData, deleteData };
