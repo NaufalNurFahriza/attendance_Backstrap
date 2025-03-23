@@ -76,7 +76,7 @@ async function deleteData(id) {
             throw new Error('Gagal menghapus data');
         }
         const result = await response.json();
-        return result;
+        return result; // Pastikan backend mengembalikan respons yang valid
     } catch (error) {
         console.error('Error deleting data:', error);
         return null;

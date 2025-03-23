@@ -7,12 +7,7 @@
     <title>Admin Absensi Karyawan</title>
     <!-- Icons-->
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" rel="stylesheet">
-    <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-    <link href="../node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="../node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <!-- CoreUI styles-->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Backpack style on top-->
     <link rel="stylesheet" href="../css/backstrap.css">
 </head>
@@ -51,18 +46,18 @@
             let data = [];
             let currentPage = 1;
             const rowsPerPage = 5;
-
+    
             // Ambil data dari backend
             data = await fetchData();
             renderTable(currentPage);
-
+    
             // Fungsi untuk merender tabel
             function renderTable(page) {
                 dataTable.innerHTML = '';
                 const start = (page - 1) * rowsPerPage;
                 const end = start + rowsPerPage;
                 const paginatedData = data.slice(start, end);
-
+    
                 paginatedData.forEach((item) => {
                     const row = `
                         <tr>
@@ -74,21 +69,21 @@
                             <td>${item.jamKeluar}</td>
                             <td>
                                 <a href="editData.html?id=${item.id}" class="btn btn-warning btn-sm">Edit</a>
-                                <button class="btn btn-danger btn-sm" onclick="deleteData(${item.id})">Delete</button>
+                                <button class="btn btn-danger btn-sm" onclick="handleDelete(${item.id})">Delete</button>
                             </td>
                         </tr>
                     `;
                     dataTable.innerHTML += row;
                 });
-
+    
                 renderPagination();
             }
-
+    
             // Fungsi untuk merender pagination
             function renderPagination() {
                 pagination.innerHTML = '';
                 const totalPages = Math.ceil(data.length / rowsPerPage);
-
+    
                 for (let i = 1; i <= totalPages; i++) {
                     const li = document.createElement('li');
                     li.className = `page-item ${i === currentPage ? 'active' : ''}`;
@@ -96,19 +91,24 @@
                     pagination.appendChild(li);
                 }
             }
-
+    
             // Fungsi untuk mengubah halaman
             window.changePage = function (page) {
                 currentPage = page;
                 renderTable(page);
             };
-
+    
             // Fungsi untuk menghapus data
-            window.deleteData = async function (id) {
+            window.handleDelete = async function (id) {
                 if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-                    await deleteData(id);
-                    data = await fetchData();
-                    renderTable(currentPage);
+                    const result = await deleteData(id); // Panggil fungsi deleteData dari api.js
+                    if (result) {
+                        alert('Data berhasil dihapus!');
+                        data = await fetchData(); // Ambil data terbaru dari backend
+                        renderTable(currentPage); // Render ulang tabel
+                    } else {
+                        alert('Gagal menghapus data.');
+                    }
                 }
             };
         });

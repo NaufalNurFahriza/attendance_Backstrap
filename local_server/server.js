@@ -33,10 +33,19 @@ app.get('/data', (req, res) => {
 app.post('/data', (req, res) => {
     const newData = req.body;
     const data = readData();
-    // Generate ID baru (ID terakhir + 1)
-    newData.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
+
+    // Cari id tertinggi yang ada
+    const maxId = data.reduce((max, item) => (item.id > max ? item.id : max), 0);
+
+    // Generate id baru (id tertinggi + 1)
+    newData.id = maxId + 1;
+
+    // Tambahkan data baru ke array
     data.push(newData);
+
+    // Tulis data ke file
     writeData(data);
+
     res.json({ message: 'Data berhasil ditambahkan!', data: newData });
 });
 
@@ -56,7 +65,6 @@ app.put('/data/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const updatedData = req.body;
     const data = readData();
-    // Cari index data berdasarkan ID
     const index = data.findIndex(item => item.id === id);
     if (index === -1) {
         return res.status(404).json({ message: 'Data tidak ditemukan' });
@@ -71,7 +79,6 @@ app.put('/data/:id', (req, res) => {
 app.delete('/data/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const data = readData();
-    // Cari index data berdasarkan ID
     const index = data.findIndex(item => item.id === id);
     if (index === -1) {
         return res.status(404).json({ message: 'Data tidak ditemukan' });
