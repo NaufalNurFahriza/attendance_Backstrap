@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Input Absensi Karyawan</title>
+    <title>Tambah Data Absensi</title>
     <!-- Icons-->
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" rel="stylesheet">
     <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Input Absensi Karyawan</h1>
+        <h1>Tambah Data Absensi</h1>
         <form id="absensiForm">
             <div class="form-group">
                 <label for="nama">Nama</label>
@@ -50,7 +50,28 @@
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script src="../util/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const absensiForm = document.getElementById('absensiForm');
+
+            absensiForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const newData = {
+                    nama: document.getElementById('nama').value,
+                    alamat: document.getElementById('alamat').value,
+                    jenisKelamin: document.getElementById('jenisKelamin').value,
+                    tanggalAbsen: document.getElementById('tanggalAbsen').value,
+                    jamMasuk: document.getElementById('jamMasuk').value,
+                    jamKeluar: document.getElementById('jamKeluar').value
+                };
+
+                await addData(newData);
+                alert('Data berhasil disimpan!');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
     <!-- CoreUI and necessary plugins-->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
