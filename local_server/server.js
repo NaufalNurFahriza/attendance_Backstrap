@@ -33,6 +33,8 @@ app.get('/data', (req, res) => {
 app.post('/data', (req, res) => {
     const newData = req.body;
     const data = readData();
+    // Generate ID baru (ID terakhir + 1)
+    newData.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
     data.push(newData);
     writeData(data);
     res.json({ message: 'Data berhasil ditambahkan!', data: newData });
@@ -54,16 +56,28 @@ app.put('/data/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const updatedData = req.body;
     const data = readData();
-    data[id] = updatedData;
+    // Cari index data berdasarkan ID
+    const index = data.findIndex(item => item.id === id);
+    if (index === -1) {
+        return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    // Update data
+    data[index] = { ...data[index], ...updatedData };
     writeData(data);
-    res.json({ message: 'Data berhasil diupdate!', data: updatedData });
+    res.json({ message: 'Data berhasil diupdate!', data: data[index] });
 });
 
 // Endpoint untuk menghapus data
 app.delete('/data/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const data = readData();
-    const deletedData = data.splice(id, 1);
+    // Cari index data berdasarkan ID
+    const index = data.findIndex(item => item.id === id);
+    if (index === -1) {
+        return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    // Hapus data
+    const deletedData = data.splice(index, 1);
     writeData(data);
     res.json({ message: 'Data berhasil dihapus!', data: deletedData });
 });
