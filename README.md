@@ -132,5 +132,3 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 - Email: [naufalnurfahriza@gmail.com](mailto:naufalnurfahriza@gmail.com)
 
 ---
-
-Dengan ini, informasi kontak penulis menjadi lebih lengkap. Jika ada yang perlu ditambahkan atau diubah, silakan beri tahu! 😊
