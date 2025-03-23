@@ -19,7 +19,7 @@
 <body>
     <div class="container mt-5">
         <h1>Data Absensi Karyawan</h1>
-        <a href="input.html" class="btn btn-primary mb-3">Tambah Absensi</a>
+        <a href="addData.html" class="btn btn-primary mb-3">Tambah Absensi</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -42,7 +42,76 @@
             </ul>
         </nav>
     </div>
-    <script src="script.js"></script>
+    <script src="../util/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const dataTable = document.getElementById('dataTable');
+            const pagination = document.getElementById('pagination');
+            let data = [];
+            let currentPage = 1;
+            const rowsPerPage = 5;
+
+            // Ambil data dari backend
+            data = await fetchData();
+            renderTable(currentPage);
+
+            // Fungsi untuk merender tabel
+            function renderTable(page) {
+                dataTable.innerHTML = '';
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const paginatedData = data.slice(start, end);
+
+                paginatedData.forEach((item) => {
+                    const row = `
+                        <tr>
+                            <td>${item.nama}</td>
+                            <td>${item.alamat}</td>
+                            <td>${item.jenisKelamin}</td>
+                            <td>${item.tanggalAbsen}</td>
+                            <td>${item.jamMasuk}</td>
+                            <td>${item.jamKeluar}</td>
+                            <td>
+                                <a href="editData.html?id=${item.id}" class="btn btn-warning btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm" onclick="deleteData(${item.id})">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    dataTable.innerHTML += row;
+                });
+
+                renderPagination();
+            }
+
+            // Fungsi untuk merender pagination
+            function renderPagination() {
+                pagination.innerHTML = '';
+                const totalPages = Math.ceil(data.length / rowsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const li = document.createElement('li');
+                    li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                    li.innerHTML = `<a class="page-link" href="#" onclick="changePage(${i})">${i}</a>`;
+                    pagination.appendChild(li);
+                }
+            }
+
+            // Fungsi untuk mengubah halaman
+            window.changePage = function (page) {
+                currentPage = page;
+                renderTable(page);
+            };
+
+            // Fungsi untuk menghapus data
+            window.deleteData = async function (id) {
+                if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+                    await deleteData(id);
+                    data = await fetchData();
+                    renderTable(currentPage);
+                }
+            };
+        });
+    </script>
     <!-- CoreUI and necessary plugins-->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
