@@ -1,91 +1,92 @@
 [
-  {
-    "id": 2,
-    "nama": "Jane Doe",
-    "alamat": "Jl. Sudirman No. 456",
-    "jenisKelamin": "Perempuan",
-    "tanggalAbsen": "2023-10-02",
-    "jamMasuk": "09:00",
-    "jamKeluar": "18:00"
-  },
-  {
-    "id": 3,
-    "nama": "Budi Santoso",
-    "alamat": "Jl. Diponegoro No. 789",
-    "jenisKelamin": "Laki-laki",
-    "tanggalAbsen": "2023-10-03",
-    "jamMasuk": "07:30",
-    "jamKeluar": "16:30"
-  },
-  {
-    "id": 4,
-    "nama": "Siti Aisyah",
-    "alamat": "Jl. Ahmad Yani No. 101",
-    "jenisKelamin": "Perempuan",
-    "tanggalAbsen": "2023-10-04",
-    "jamMasuk": "08:15",
-    "jamKeluar": "17:15"
-  },
-  {
-    "id": 5,
-    "nama": "Andi Wijaya",
-    "alamat": "Jl. Gatot Subroto No. 202",
-    "jenisKelamin": "Laki-laki",
-    "tanggalAbsen": "2023-10-05",
-    "jamMasuk": "07:45",
-    "jamKeluar": "16:45"
-  },
-  {
-    "id": 6,
-    "nama": "Dewi Lestari",
-    "alamat": "Jl. Cempaka No. 303",
-    "jenisKelamin": "Perempuan",
-    "tanggalAbsen": "2023-10-06",
-    "jamMasuk": "09:00",
-    "jamKeluar": "18:00"
-  },
-  {
-    "id": 7,
-    "nama": "Rahmat Hidayat",
-    "alamat": "Jl. Mawar No. 404",
-    "jenisKelamin": "Laki-laki",
-    "tanggalAbsen": "2023-10-07",
-    "jamMasuk": "08:30",
-    "jamKeluar": "17:30"
-  },
-  {
-    "id": 8,
-    "nama": "Lina Kartika",
-    "alamat": "Jl. Melati No. 505",
-    "jenisKelamin": "Perempuan",
-    "tanggalAbsen": "2023-10-08",
-    "jamMasuk": "07:50",
-    "jamKeluar": "16:50"
-  },
-  {
-    "id": 9,
-    "nama": "Yusuf Maulana",
-    "alamat": "Jl. Kenanga No. 606",
-    "jenisKelamin": "Laki-laki",
-    "tanggalAbsen": "2023-10-09",
-    "jamMasuk": "08:10",
-    "jamKeluar": "17:10"
-  },
-  {
-    "id": 10,
-    "nama": "Fitri Handayani",
-    "alamat": "Jl. Anggrek No. 707",
-    "jenisKelamin": "Perempuan",
-    "tanggalAbsen": "2023-10-10",
-    "jamMasuk": "09:15",
-    "jamKeluar": "18:15"
-  },
-  {
-    "nama": "coba",
-    "alamat": "jogja",
-    "jenisKelamin": "Laki-laki",
-    "tanggalAbsen": "2025-02-27",
-    "jamMasuk": "19:52",
-    "jamKeluar": "16:53"
-  }
+    {
+        "id": 1,
+        "nama": "John Doe",
+        "alamat": "Jl. Merdeka No. 123",
+        "jenisKelamin": "Laki-laki",
+        "tanggalAbsen": "2023-10-01",
+        "jamMasuk": "08:00",
+        "jamKeluar": "17:00"
+    },
+    {
+        "id": 2,
+        "nama": "Jane Doe",
+        "alamat": "Jl. Sudirman No. 456",
+        "jenisKelamin": "Perempuan",
+        "tanggalAbsen": "2023-10-02",
+        "jamMasuk": "09:00",
+        "jamKeluar": "18:00"
+    },
+    {
+        "id": 3,
+        "nama": "Budi Santoso",
+        "alamat": "Jl. Diponegoro No. 789",
+        "jenisKelamin": "Laki-laki",
+        "tanggalAbsen": "2023-10-03",
+        "jamMasuk": "07:30",
+        "jamKeluar": "16:30"
+    },
+    {
+        "id": 4,
+        "nama": "Siti Aisyah",
+        "alamat": "Jl. Ahmad Yani No. 101",
+        "jenisKelamin": "Perempuan",
+        "tanggalAbsen": "2023-10-04",
+        "jamMasuk": "08:15",
+        "jamKeluar": "17:15"
+    },
+    {
+        "id": 5,
+        "nama": "Andi Wijaya",
+        "alamat": "Jl. Gatot Subroto No. 202",
+        "jenisKelamin": "Laki-laki",
+        "tanggalAbsen": "2023-10-05",
+        "jamMasuk": "07:45",
+        "jamKeluar": "16:45"
+    },
+    {
+        "id": 6,
+        "nama": "Dewi Lestari",
+        "alamat": "Jl. Cempaka No. 303",
+        "jenisKelamin": "Perempuan",
+        "tanggalAbsen": "2023-10-06",
+        "jamMasuk": "09:00",
+        "jamKeluar": "18:00"
+    },
+    {
+        "id": 7,
+        "nama": "Rahmat Hidayat",
+        "alamat": "Jl. Mawar No. 404",
+        "jenisKelamin": "Laki-laki",
+        "tanggalAbsen": "2023-10-07",
+        "jamMasuk": "08:30",
+        "jamKeluar": "17:30"
+    },
+    {
+        "id": 8,
+        "nama": "Lina Kartika",
+        "alamat": "Jl. Melati No. 505",
+        "jenisKelamin": "Perempuan",
+        "tanggalAbsen": "2023-10-08",
+        "jamMasuk": "07:50",
+        "jamKeluar": "16:50"
+    },
+    {
+        "id": 9,
+        "nama": "Yusuf Maulana",
+        "alamat": "Jl. Kenanga No. 606",
+        "jenisKelamin": "Laki-laki",
+        "tanggalAbsen": "2023-10-09",
+        "jamMasuk": "08:10",
+        "jamKeluar": "17:10"
+    },
+    {
+        "id": 10,
+        "nama": "Fitri Handayani",
+        "alamat": "Jl. Anggrek No. 707",
+        "jenisKelamin": "Perempuan",
+        "tanggalAbsen": "2023-10-10",
+        "jamMasuk": "09:15",
+        "jamKeluar": "18:15"
+    }
 ]
